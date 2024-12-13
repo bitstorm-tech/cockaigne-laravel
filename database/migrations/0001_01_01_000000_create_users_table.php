@@ -4,17 +4,31 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->id()->primary();
+            $table->string('username')->unique();
             $table->string('email')->unique();
+            $table->boolean('is_dealer');
+            $table->string('street');
+            $table->boolean('age');
+            $table->string('gender');
+            $table->integer('default_category');
+            $table->string('house_number');
+            $table->string('city');
+            $table->integer('zip');
+            $table->string('phone');
+            $table->string('tax_id');
+            $table->boolean('use_location_service');
+            $table->integer('search_radius_in_meters');
+            $table->magellanPoint('location');
+            $table->boolean('is_active');
+            $table->string('language');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
