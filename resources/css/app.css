@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    h1 {
+        @apply text-3xl;
+        @apply my-4;
+    }
+
+    h2 {
+        @apply text-xl;
+        @apply my-3;
+    }
+
+    button {
+        @apply btn btn-warning focus:outline-none;
+    }
+
+    button.clean {
+        all: unset;
+        cursor: pointer;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="number"],
+    input[type="email"],
+    input[type="datetime-local"],
+    input[type="date"] {
+        @apply input input-bordered focus:border-primary focus:outline-none;
+    }
+
+    input[type="range"] {
+        @apply range;
+    }
+
+    textarea {
+        @apply textarea textarea-bordered focus:border-primary focus:outline-none;
+    }
+
+    select {
+        @apply select select-bordered focus:border-primary focus:outline-none;
+    }
+}
