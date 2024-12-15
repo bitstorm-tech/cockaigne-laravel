@@ -69,7 +69,7 @@
       'privacy' => $this->privacyLink(),
   ]) !!}" />
   <div class="mt-4 grid grid-cols-2 gap-2">
-    <a class="btn btn-primary" href="/" wire:navigate>{{ __('Cancel') }}</a>
+    <a class="btn btn-primary" href="/login" wire:navigate>{{ __('Cancel') }}</a>
     <button>{{ __('Signup') }}</button>
   </div>
 </form>
