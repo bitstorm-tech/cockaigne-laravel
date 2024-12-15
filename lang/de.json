@@ -1,8 +1,17 @@
 {
   "Activate account": "Account aktivieren",
-  "Login": "Anmelden",
-  "Reset password": "Passwort zurücksetzen",
-  "Password": "Passwort",
+  "Age": "Alter",
+  "Cancel": "Abbrechen",
+  "Confirm password": "Passwort wiederholen",
   "E-Mail": "E-Mail",
-  "Signup": "Registrieren"
+  "Gender": "Geschlecht",
+  "I have read the :terms and :privacy and accept them": "Ich habe die :terms und :privacy gelesen und akzeptiere diese",
+  "Login": "Anmelden",
+  "Password": "Passwort",
+  "Privacy": "Datenschutzvereinbarung",
+  "Register a shop": "Ein Geschäft registrieren",
+  "Reset password": "Passwort zurücksetzen",
+  "Signup": "Registrieren",
+  "Terms": "AGB",
+  "Username": "Benutzername"
 }
