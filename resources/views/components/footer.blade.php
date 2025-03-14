@@ -1,4 +1,4 @@
-<footer class="dock dock-sm">
+<footer class="dock dock-xs">
     <a href="/" wire:navigate>
         @if (request()->path() === "/")
             <img class="h-6" src="/icons/home.svg" alt="Home" />
