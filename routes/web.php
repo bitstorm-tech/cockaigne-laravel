@@ -1,5 +1,9 @@
 <?php
 
+use App\Livewire\DealsOverview;
+use App\Livewire\Home;
+use App\Livewire\Map;
+use App\Livewire\TopDeals;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,4 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'livewire.welcome');
+Route::get('/', Home::class);
+Route::get('/top-deals', TopDeals::class);
+Route::get('/deal-overview', DealsOverview::class);
+Route::get('/map', Map::class);
