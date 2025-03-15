@@ -37,25 +37,29 @@
     <!-- Mobile menu -->
     <!-- ----------- -->
     <div
-        class="bg-dark absolute top-10 right-2 z-50 rounded-md border-2 border-[#232b2e] select-none md:hidden"
+        class="bg-base-300 absolute top-10 right-2 z-50 rounded-md border-1 select-none md:hidden"
         x-transition.duration.250ms
         x-show="showMenu"
         @click.outside="showMenu = false"
     >
         <div class="flex flex-col gap-5 p-6 sm:px-3">
-            if user.IsAuthenticated { if user.IsDealer {
-            @DealerMenu(lang)
-            } else {
-            @UserMenu(lang)
-            } } else {
-            @menuEntry(t("login", lang), "/login", icon . Login())
-            @menuEntry(t("signup", lang), "/signup", icon . Registration())
-            }
+            @if (Auth::user()?->isDealer())
+                <x-nav.nav-menu-entry text="Basic vs Pro" href="/login" icon="rocket" />
+                <x-nav.nav-menu-entry text="Basic vs Pro" href="/login" icon="rocket" />
+                <x-nav.nav-menu-entry text="Basic vs Pro" href="/login" icon="rocket" />
+            @elseif (Auth::user()?->isUser())
+                User
+            @else
+                <x-nav.nav-menu-entry text="Basic vs Pro" href="/login" icon="rocket" />
+            @endif
+
+            <x-nav.nav-menu-entry text="Login" href="/login" icon="login" />
+            <x-nav.nav-menu-entry text="Signup" href="/signup" icon="signup" />
             <div class="flex gap-4">
                 { t("language", lang) }:
                 <div class="flex gap-2">
-                    <a class="link w-10" href="/language-set/de">@icon.FlagDE()</a>
-                    <a class="link w-10" href="/language-set/en">@icon.FlagUK()</a>
+                    <a class="link w-10" href="/language-set/de"><img src="/icons/flag-de.svg" alt="Flag Germany" /></a>
+                    <a class="link w-10" href="/language-set/en"><img src="/icons/flag-uk.svg" alt="Flag UK" /></a>
                 </div>
             </div>
             <button onclick="LocationService.toggleLocationServiceSimulation()">Toggle Walk Simulator</button>

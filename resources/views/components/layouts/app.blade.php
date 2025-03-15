@@ -10,7 +10,7 @@
     </head>
 
     <body class="max-h-screen">
-        <x-header />
+        <x-nav.nav-bar />
         <main class="pb-10 md:px-52">
             {{ $slot }}
         </main>
