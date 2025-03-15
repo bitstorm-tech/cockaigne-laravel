@@ -1,8 +1,10 @@
 <?php
 
+use App\Livewire\BasicVsPro;
 use App\Livewire\DealsOverview;
 use App\Livewire\Home;
 use App\Livewire\Map;
+use App\Livewire\Signup;
 use App\Livewire\TopDeals;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', Home::class);
-Route::get('/top-deals', TopDeals::class);
+Route::get('/basic-vs-pro', BasicVsPro::class);
 Route::get('/deal-overview', DealsOverview::class);
 Route::get('/map', Map::class);
+Route::get('/signup', Signup::class);
+Route::get('/top-deals', TopDeals::class);

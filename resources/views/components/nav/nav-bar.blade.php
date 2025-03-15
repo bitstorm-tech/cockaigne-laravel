@@ -50,7 +50,7 @@
             @elseif (Auth::user()?->isUser())
                 User
             @else
-                <x-nav.nav-menu-entry text="Basic vs Pro" href="/login" icon="rocket" />
+                <x-nav.nav-menu-entry text="Basic vs Pro" href="/basic-vs-pro" icon="rocket" />
             @endif
 
             <x-nav.nav-menu-entry :text="__('Login')" href="/login" icon="login" />
