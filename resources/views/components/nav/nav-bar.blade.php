@@ -54,7 +54,7 @@
             @endif
 
             <x-nav.nav-menu-entry :text="__('Login')" href="/login" icon="login" />
-            <x-nav.nav-menu-entry :text="__('Signup')" href="/signup" icon="signup" />
+            <x-nav.nav-menu-entry :text="__('Sign up')" href="/signup" icon="signup" />
             <div class="flex gap-4">
                 {{ __("Language") }}:
                 <div class="flex gap-2">

@@ -9,7 +9,7 @@
         @vite(["resources/css/app.css", "resources/js/app.js"])
     </head>
 
-    <body class="max-h-screen">
+    <body class="max-h-screen antialiased">
         <x-nav.nav-bar />
         <main class="pb-10 md:px-52">
             {{ $slot }}

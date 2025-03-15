@@ -1,5 +1,5 @@
 <section class="flex flex-col p-4">
-    <h1 class="m-8 text-center text-4xl">Basic vs Pro</h1>
+    <h1 class="text-center">Basic vs Pro</h1>
     <table class="mb-10 table-auto">
         <thead>
             <tr>
@@ -62,5 +62,5 @@
             </tr>
         </tbody>
     </table>
-    <a class="btn btn-warning" href="/signup" wire:navigate>Registriere dich jetzt kostenlos!</a>
+    <a class="btn btn-primary" href="/signup" wire:navigate>Registriere dich jetzt kostenlos!</a>
 </section>

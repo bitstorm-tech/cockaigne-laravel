@@ -1,9 +1,26 @@
 {
+    "Age": "Alter",
     "Basic vs Pro": "Basic vs Pro",
+    "Cancel": "Abbrechen",
+    "City": "Stadt",
+    "Company name": "Firmenname",
+    "E-Mail": "E-Mail",
+    "Gender": "Geschlecht",
+    "House number": "Hausnummer",
     "Imprint": "Impressum",
+    "Industry": "Branche",
     "Language": "Sprache",
     "Login": "Anmelden",
+    "Password": "Passwort",
+    "Password repeat": "Passwort wiederholen",
+    "Phone number": "Telefon",
+    "Postal code": "PLZ",
     "Privacy": "Datenschutz",
-    "Signup": "Registrieren",
-    "Terms": "AGB"
+    "Select industry": "Branche auswählen",
+    "Sign up": "Registrieren",
+    "Sign up a shop": "Ein Geschäft registrieren",
+    "Street": "Straße",
+    "Tax ID": "Umsatzsteuer-ID",
+    "Terms": "AGB",
+    "Username": "Benutzername"
 }

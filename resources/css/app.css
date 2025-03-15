@@ -37,3 +37,13 @@
     --depth: 0;
     --noise: 1;
 }
+
+h1 {
+    @apply text-3xl;
+    @apply my-4;
+}
+
+h2 {
+    @apply text-xl;
+    @apply my-3;
+}
