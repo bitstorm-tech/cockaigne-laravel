@@ -1,4 +1,4 @@
-<form class="flex flex-col gap-4 p-6" hx-post="/api/registration" hx-target="#alert" x-data="{ isDealer: true }">
+<form class="flex flex-col gap-2 p-6" hx-post="/api/registration" hx-target="#alert" x-data="{ isDealer: false }">
     <h1 class="text-center">{{ __("Sign up") }}</h1>
     <label class="fieldset-label">
         <input type="checkbox" checked="checked" class="checkbox" name="isDealer" x-model="isDealer" />
@@ -46,7 +46,7 @@
     {{-- --------------- --}}
     {{-- Dealer specific --}}
     {{-- --------------- --}}
-    <div class="flex flex-col gap-4" x-show="isDealer">
+    <div class="flex flex-col gap-2" x-show="isDealer">
         <fieldset class="fieldset">
             <legend class="fieldset-legend">{{ __("Industry") }}</legend>
             <select class="select w-full" name="business">
@@ -63,7 +63,7 @@
             </fieldset>
             <fieldset class="fieldset">
                 <legend class="fieldset-legend">{{ __("House number") }}</legend>
-                <input type="text" class="input" name="houseNumber" />
+                <input type="text" class="input w-full" name="houseNumber" />
             </fieldset>
         </div>
         <div class="grid grid-cols-3 gap-2">
@@ -73,7 +73,7 @@
             </fieldset>
             <fieldset class="fieldset">
                 <legend class="fieldset-legend">{{ __("Postal code") }}</legend>
-                <input type="number" class="input" name="postalCode" />
+                <input type="number" class="input w-full" name="postalCode" />
             </fieldset>
         </div>
         <fieldset class="fieldset">
