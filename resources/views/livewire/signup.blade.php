@@ -85,16 +85,16 @@
             <input type="text" class="input w-full" name="taxId" />
         </fieldset>
     </div>
-    <div class="form-control-horizontal pt-10">
-        <input id="terms" type="checkbox" class="checkbox" name="terms" />
-        <label for="terms" class="cursor-pointer">
-            {{ __("accept_terms_and_privacy_1") }}
-            <a class="link" href="#">{{ __("terms") }}</a>
-            {{ __("and") }}
-            <a class="link" href="#">{{ __("privacy") }}</a>
-            {{ __("accept_terms_and_privacy_2") }}
-        </label>
-    </div>
+    <label class="fieldset-label pt-10">
+        <input type="checkbox" class="checkbox" name="acceptTerms" />
+        @lang(
+            "I have read the :termsLink and :privacyLink and accept them",
+            [
+                "termsLink" => __("<a class=\"link\" href=\"/terms\">Terms</a>"),
+                "privacyLink" => __("<a class=\"link\" href=\"/privacy\">Privacy</a>"),
+            ]
+        )
+    </label>
     <div class="mt-4 grid grid-cols-2 gap-2">
         <a class="btn" href="/" wire:navigate>{{ __("Cancel") }}</a>
         <button class="btn btn-primary">{{ __("Sign up") }}</button>

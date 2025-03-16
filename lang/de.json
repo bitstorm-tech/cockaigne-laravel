@@ -1,4 +1,6 @@
 {
+    "<a class=\"link\" href=\"/privacy\">Privacy</a>": "<a class=\"link\" href=\"/privacy\">Datenschutzvereinbarung</a>",
+    "<a class=\"link\" href=\"/terms\">Terms</a>": "<a class=\"link\" href=\"/terms\">AGB</a>",
     "Age": "Alter",
     "Basic vs Pro": "Basic vs Pro",
     "Cancel": "Abbrechen",
@@ -7,6 +9,7 @@
     "E-Mail": "E-Mail",
     "Gender": "Geschlecht",
     "House number": "Hausnummer",
+    "I have read the :termsLink and :privacyLink and accept them": "Ich habe die :termsLink und :privacyLink gelesen und akzeptiere diese",
     "Imprint": "Impressum",
     "Industry": "Branche",
     "Language": "Sprache",
