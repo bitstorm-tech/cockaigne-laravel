@@ -87,13 +87,15 @@
     </div>
     <label class="fieldset-label pt-10">
         <input type="checkbox" class="checkbox" name="acceptTerms" />
-        @lang(
-            "I have read the :termsLink and :privacyLink and accept them",
-            [
-                "termsLink" => __("<a class=\"link\" href=\"/terms\">Terms</a>"),
-                "privacyLink" => __("<a class=\"link\" href=\"/privacy\">Privacy</a>"),
-            ]
-        )
+        <span>
+            @lang(
+                "I have read the :termsLink and :privacyLink and accept them",
+                [
+                    "termsLink" => __("<a class=\"link\" href=\"/terms\">Terms</a>"),
+                    "privacyLink" => __("<a class=\"link\" href=\"/privacy\">Privacy</a>"),
+                ]
+            )
+        </span>
     </label>
     <div class="mt-4 grid grid-cols-2 gap-2">
         <a class="btn" href="/" wire:navigate>{{ __("Cancel") }}</a>
