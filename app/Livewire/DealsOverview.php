@@ -2,13 +2,6 @@
 
 namespace App\Livewire;
 
-use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
-class DealsOverview extends Component
-{
-    public function render(): View
-    {
-        return view('livewire.deal-overview');
-    }
-}
+class DealsOverview extends Component {}

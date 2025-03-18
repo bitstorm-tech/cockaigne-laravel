@@ -4,4 +4,4 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class BasicVsPro extends Component {}
+class Login extends Component {}
