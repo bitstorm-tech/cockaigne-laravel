@@ -36,17 +36,20 @@
         {{-- --------------- --}}
         <x-ui.input type="email" label="E-Mail" model="dealerForm.email" />
         <x-ui.input type="text" label="Company name" model="dealerForm.username" />
-        <x-ui.input type="password" label="Password" model="dealerForm.email" />
-        <x-ui.input type="password" label="Password confirmation" model="dealerForm.password_confirmed" />
+        <x-ui.input type="password" label="Password" model="dealerForm.password" />
+        <x-ui.input type="password" label="Password confirmation" model="dealerForm.password_confirmation" />
         <div class="flex flex-col gap-2">
             <fieldset class="fieldset">
                 <legend class="fieldset-legend">{{ __("Industry") }}</legend>
-                <select class="select w-full" wire:model="dealerForm.industry">
+                <select class="select w-full" wire:model="dealerForm.defaultCategory">
                     <option selected disabled hidden value="-1">{{ __("Select industry") }} ...</option>
-                    @foreach ($industries as $industry)
-                        <option value="{{ $industry["id"] }}">{{ $industry["name"] }}</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->category }}</option>
                     @endforeach
                 </select>
+                @error("dealerForm.defaultCategory")
+                    <span class="text-error text-sm">{{ $message }}</span>
+                @enderror
             </fieldset>
             <div class="grid grid-cols-3 gap-2">
                 <div class="col-span-2">

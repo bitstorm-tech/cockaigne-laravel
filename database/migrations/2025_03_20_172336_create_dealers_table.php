@@ -11,13 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pro_users', function (Blueprint $table) {
+        Schema::create('dealers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->references('id')->on('users')->cascadeOnDelete();
-            $table->foreignId('age_id')->nullable()->constrained()->references('id')->on('ages');
-            $table->foreignId('gender_id')->nullable()->constrained()->references('id')->on('genders');
-            $table->boolean('use_location_service')->default(false);
-            $table->integer('search_radius_meters')->default(100);
+            $table->foreignId('category_id')->constrained()->references('id')->on('categories');
+            $table->string('street');
+            $table->string('house_number');
+            $table->string('city');
+            $table->integer('postal_code');
+            $table->string('phone');
+            $table->string('tax_id');
+            $table->geometry('location', 'point', 4326);
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pro_users');
+        Schema::dropIfExists('dealers');
     }
 };

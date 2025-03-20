@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Validation\ValidationException;
 
 class User extends Authenticatable
 {
@@ -21,6 +22,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
+        'username',
         'email',
         'password',
         'language',
@@ -54,11 +56,36 @@ class User extends Authenticatable
         return $this->hasOne(ProUser::class);
     }
 
+    public function dealer(): HasOne
+    {
+        return $this->hasOne(Dealer::class);
+    }
+
     protected function email(): Attribute
     {
         return Attribute::make(
             get: fn ($email) => strtolower($email),
             set: fn ($email) => strtolower($email),
         );
+    }
+
+    protected static function checkIfEmailExists(string $email, string $formName)
+    {
+        $emailExists = User::select('email')->whereLike('email', $email)->exists();
+
+        if ($emailExists) {
+            throw ValidationException::withMessages([$formName.'.email' => __('E-Mail already in use')]);
+        }
+
+    }
+
+    protected static function checkIfUsernameExists(string $username, string $formName, string $errorMessage)
+    {
+        $usernameExists = User::select('username')->whereLike('username', $username)->exists();
+
+        if ($usernameExists) {
+            throw ValidationException::withMessages([$formName.'.username' => __($errorMessage)]);
+        }
+
     }
 }

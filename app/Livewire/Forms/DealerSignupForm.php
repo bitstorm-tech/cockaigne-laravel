@@ -8,35 +8,35 @@ use Livewire\Form;
 class DealerSignupForm extends Form
 {
     #[Rule('required')]
-    public string $email;
+    public string $email = 'josef.bauer.business@gmail.com';
 
     #[Rule('required|min:3')]
-    public string $username;
+    public string $username = 'Josef Doenerbude';
 
-    #[Rule('required|min:8|confirmed')]
-    public string $password;
+    #[Rule('required|min:4|confirmed')]
+    public string $password = 'test';
 
-    #[Rule('required|min:8')]
-    public string $password_confirmation;
+    #[Rule('required|min:4')]
+    public string $password_confirmation = 'test';
 
-    #[Rule('required')]
-    public string $industry;
-
-    #[Rule('required')]
-    public string $street;
+    #[Rule('required|gt:0')]
+    public int $defaultCategory = 1;
 
     #[Rule('required')]
-    public string $houseNumber;
+    public string $street = 'Josef-Frankl-Str.';
 
     #[Rule('required')]
-    public string $city;
+    public string $houseNumber = '31a';
 
     #[Rule('required')]
-    public int $postalCode;
+    public string $city = 'Muenchen';
 
     #[Rule('required')]
-    public string $phoneNumber;
+    public int $postalCode = 80995;
 
     #[Rule('required')]
-    public string $taxId;
+    public string $phoneNumber = '1234567890';
+
+    #[Rule('required')]
+    public string $taxId = 'DE-1234567890';
 }

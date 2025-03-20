@@ -5,6 +5,7 @@
     "Basic vs Pro": "Basic vs Pro",
     "Cancel": "Abbrechen",
     "City": "Stadt",
+    "Company name already exists": "Firmenname bereits vergeben",
     "Company name": "Firmenname",
     "E-Mail": "E-Mail",
     "Gender": "Geschlecht",
@@ -27,6 +28,7 @@
     "Street": "Straße",
     "Tax ID": "Umsatzsteuer-ID",
     "Terms": "AGB",
+    "Username already exists": "Benutzername bereits vergeben",
     "Username": "Benutzername",
     "Woman": "Frau"
 }

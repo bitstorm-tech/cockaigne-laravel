@@ -2,15 +2,13 @@
 
 namespace App\Livewire\Forms;
 
-use App\Models\ProUser;
-use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\Rule;
 use Livewire\Form;
 
 class UserSignupForm extends Form
 {
     #[Rule('required')]
-    public string $email = 'a@b.com';
+    public string $email = 'josef.bauer.1st@gmail.com';
 
     #[Rule('required|min:2')]
     public string $username = 'JBA';
@@ -24,13 +22,4 @@ class UserSignupForm extends Form
     public ?int $age = null;
 
     public ?int $gender = null;
-
-    public function create()
-    {
-        Log::info("Save pro user: {$this->email}");
-        $this->validate();
-        Log::info('Pro user is valid ...');
-        ProUser::create($this);
-        Log::info('Done ...');
-    }
 }

@@ -5,12 +5,15 @@ namespace App\Livewire;
 use App\Livewire\Forms\DealerSignupForm;
 use App\Livewire\Forms\UserSignupForm;
 use App\Models\Age;
+use App\Models\Category;
+use App\Models\Dealer;
 use App\Models\Gender;
+use App\Models\ProUser;
 use Livewire\Component;
 
 class Signup extends Component
 {
-    public bool $isDealer = false;
+    public bool $isDealer = true;
 
     public bool $acceptTerms = true;
 
@@ -25,9 +28,9 @@ class Signup extends Component
         ]);
 
         if ($this->isDealer) {
-            // $this->dealerForm->create();
+            Dealer::create($this->dealerForm);
         } else {
-            $this->userForm->create();
+            ProUser::create($this->userForm);
         }
 
         response()->redirectTo('/');
@@ -35,20 +38,14 @@ class Signup extends Component
 
     public function render()
     {
-        $industries = [
-            ['id' => 1, 'name' => 'Flowsers'],
-            ['id' => 2, 'name' => 'Hotel'],
-            ['id' => 3, 'name' => 'Cars'],
-            ['id' => 4, 'name' => 'Finance'],
-        ];
-
         $ages = Age::select(['id', 'age'])->where('active', true)->orderBy('age')->get();
         $genders = Gender::select(['id', 'gender'])->where('active', true)->orderBy('gender')->get();
+        $categories = Category::select(['id', 'category'])->where('active', true)->orderBy('category')->get();
 
         return view('livewire.signup', [
             'ages' => $ages,
             'genders' => $genders,
-            'industries' => $industries,
+            'categories' => $categories,
         ]);
     }
 }
