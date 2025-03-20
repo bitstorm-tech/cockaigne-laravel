@@ -4,6 +4,8 @@ namespace App\Livewire;
 
 use App\Livewire\Forms\DealerSignupForm;
 use App\Livewire\Forms\UserSignupForm;
+use App\Models\Age;
+use App\Models\Gender;
 use Livewire\Component;
 
 class Signup extends Component
@@ -23,9 +25,9 @@ class Signup extends Component
         ]);
 
         if ($this->isDealer) {
-            // $this->dealerForm->save();
+            // $this->dealerForm->create();
         } else {
-            $this->userForm->save();
+            $this->userForm->create();
         }
 
         response()->redirectTo('/');
@@ -40,7 +42,12 @@ class Signup extends Component
             ['id' => 4, 'name' => 'Finance'],
         ];
 
+        $ages = Age::select(['id', 'age'])->where('active', true)->orderBy('age')->get();
+        $genders = Gender::select(['id', 'gender'])->where('active', true)->orderBy('gender')->get();
+
         return view('livewire.signup', [
+            'ages' => $ages,
+            'genders' => $genders,
             'industries' => $industries,
         ]);
     }

@@ -21,11 +21,11 @@ class UserSignupForm extends Form
     #[Rule('required|min:4')]
     public string $password_confirmation = 'test';
 
-    public int $age;
+    public ?int $age = null;
 
-    public string $gender;
+    public ?int $gender = null;
 
-    public function save()
+    public function create()
     {
         Log::info("Save pro user: {$this->email}");
         $this->validate();

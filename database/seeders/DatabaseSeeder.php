@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Age;
+use App\Models\Gender;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,11 +15,30 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        Gender::create([
+            'gender' => 'Woman',
+        ]);
+        Gender::create([
+            'gender' => 'Man',
+        ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        Age::create([
+            'age' => '1 - 18',
+        ]);
+        Age::create([
+            'age' => '19 - 29',
+        ]);
+        Age::create([
+            'age' => '30 - 39',
+        ]);
+        Age::create([
+            'age' => '40 - 49',
+        ]);
+        Age::create([
+            'age' => '50 - 59',
+        ]);
+        Age::create([
+            'age' => '60+',
         ]);
     }
 }

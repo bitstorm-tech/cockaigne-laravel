@@ -15,20 +15,19 @@
         <fieldset class="fieldset">
             <legend class="fieldset-legend">{{ __("Age") }}</legend>
             <select class="select w-full" wire:model="userForm.age">
-                <option>bis 18</option>
-                <option>19 - 29</option>
-                <option>30 - 39</option>
-                <option>40 - 49</option>
-                <option>50 - 59</option>
-                <option>über 60</option>
+                <option>{{ __("I don't say") }}</option>
+                @foreach ($ages as $age)
+                    <option value="{{ $age->id }}">{{ $age->age }}</option>
+                @endforeach
             </select>
         </fieldset>
         <fieldset class="fieldset">
             <legend class="fieldset-legend">{{ __("Gender") }}</legend>
             <select class="select w-full" wire:model="userForm.gender">
-                <option>Frau</option>
-                <option>Mann</option>
-                <option>Egal</option>
+                <option>{{ __("I don't say") }}</option>
+                @foreach ($genders as $gender)
+                    <option value="{{ $gender->id }}">{{ __($gender->gender) }}</option>
+                @endforeach
             </select>
         </fieldset>
     @else

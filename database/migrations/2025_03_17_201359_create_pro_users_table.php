@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('pro_users', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->references('id')->on('users');
+            $table->foreignId('user_id')->constrained()->references('id')->on('users')->cascadeOnDelete();
             $table->string('username')->unique();
-            $table->integer('age')->nullable();
-            $table->string('gender')->nullable();
+            $table->foreignId('age_id')->nullable()->constrained()->references('id')->on('ages');
+            $table->foreignId('gender_id')->nullable()->constrained()->references('id')->on('genders');
             $table->boolean('use_location_service')->default(false);
             $table->integer('search_radius_meters')->default(100);
             $table->timestamps();
