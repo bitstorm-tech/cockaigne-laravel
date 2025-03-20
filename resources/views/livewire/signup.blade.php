@@ -10,8 +10,8 @@
         {{-- ------------- --}}
         <x-ui.input type="email" label="E-Mail" model="userForm.email" />
         <x-ui.input type="text" label="Username" model="userForm.username" />
-        <x-ui.input type="password" label="Password" model="userForm.email" />
-        <x-ui.input type="password" label="Password confirmation" model="userForm.password_confirmed" />
+        <x-ui.input type="password" label="Password" model="userForm.password" />
+        <x-ui.input type="password" label="Password confirmation" model="userForm.password_confirmation" />
         <fieldset class="fieldset">
             <legend class="fieldset-legend">{{ __("Age") }}</legend>
             <select class="select w-full" wire:model="userForm.age">

@@ -4,15 +4,13 @@ namespace App\Livewire;
 
 use App\Livewire\Forms\DealerSignupForm;
 use App\Livewire\Forms\UserSignupForm;
-use Livewire\Attributes\Rule;
 use Livewire\Component;
 
 class Signup extends Component
 {
-    public bool $isDealer = true;
+    public bool $isDealer = false;
 
-    #[Rule('accepted')]
-    public bool $acceptTerms = false;
+    public bool $acceptTerms = true;
 
     public UserSignupForm $userForm;
 
@@ -20,13 +18,17 @@ class Signup extends Component
 
     public function save()
     {
-        $this->validate();
+        $this->validate([
+            'acceptTerms' => 'accepted',
+        ]);
 
         if ($this->isDealer) {
-            $this->dealerForm->validate();
+            // $this->dealerForm->save();
         } else {
-            $this->userForm->validate();
+            $this->userForm->save();
         }
+
+        response()->redirectTo('/');
     }
 
     public function render()
