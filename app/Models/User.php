@@ -51,14 +51,24 @@ class User extends Authenticatable
         ];
     }
 
-    public function proUser(): HasOne
+    public function proUser(): ?HasOne
     {
         return $this->hasOne(ProUser::class);
     }
 
-    public function dealer(): HasOne
+    public function dealer(): ?HasOne
     {
         return $this->hasOne(Dealer::class);
+    }
+
+    public function isUser(): bool
+    {
+        return $this->proUser != null;
+    }
+
+    public function isDealer(): bool
+    {
+        return $this->dealer != null;
     }
 
     protected function email(): Attribute

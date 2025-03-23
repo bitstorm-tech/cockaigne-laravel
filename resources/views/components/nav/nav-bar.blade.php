@@ -3,18 +3,18 @@
         <div class="flex h-12 items-center justify-between">
             <div class="flex gap-4">
                 <a href="/"><img class="h-7" src="/icons/logo-text.svg" alt="Logo" /></a>
-                @if (Auth::user()?->isUser())
+                @if (! Auth::user()?->isDealer())
                     <div class="badge badge-neutral self-end text-xs">
-                        @if (Auth::user()?->isBasicUser())
-                            Basic
-                        @else
+                        @if (Auth::user())
                             Pro
+                        @else
+                            Basic
                         @endif
                     </div>
                 @endif
             </div>
             <div class="hidden gap-6 md:flex">
-                @if (Auth::user()?->isAuthenticated)
+                @if (Auth::user())
                     <a class="menu-item" href="/settings" wire:navigate>{ t("settings", lang) }</a>
                     <a class="menu-item" href="/contact" wire:navigate>Kontaktiere uns</a>
                     <a class="menu-item" href="/logout" wire:navigate>Abmelden</a>
@@ -47,14 +47,15 @@
                 <x-nav.nav-menu-entry :text="__('Basic vs Pro')" href="/login" icon="rocket" />
                 <x-nav.nav-menu-entry text="Basic vs Pro" href="/login" icon="rocket" />
                 <x-nav.nav-menu-entry text="Basic vs Pro" href="/login" icon="rocket" />
+                <x-nav.nav-menu-entry text="Logout" href="/logout" icon="rocket" />
             @elseif (Auth::user()?->isUser())
-                User
+                <x-nav.nav-menu-entry text="Logout" href="/logout" icon="rocket" />
             @else
                 <x-nav.nav-menu-entry text="Basic vs Pro" href="/basic-vs-pro" icon="rocket" />
+                <x-nav.nav-menu-entry text="Login" href="/login" icon="login" />
+                <x-nav.nav-menu-entry text="Sign up" href="/signup" icon="signup" />
             @endif
 
-            <x-nav.nav-menu-entry :text="__('Login')" href="/login" icon="login" />
-            <x-nav.nav-menu-entry :text="__('Sign up')" href="/signup" icon="signup" />
             <div class="flex gap-4">
                 {{ __("Language") }}:
                 <div class="flex gap-2">

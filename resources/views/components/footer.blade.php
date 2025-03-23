@@ -6,7 +6,7 @@
             <img class="h-6" src="/icons/home-outline.svg" alt="Home" />
         @endif
     </a>
-    @if (Auth::user()?->isDealer)
+    @if (Auth::user()?->isDealer())
         <a href="/deal-overview" wire:navigate>
             @if (request()->is("*deals-overview"))
                 <img class="h-6" src="/icons/deals-overview.svg" alt="Deals overview" />

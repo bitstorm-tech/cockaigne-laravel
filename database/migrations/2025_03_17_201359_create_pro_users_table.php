@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pro_users', function (Blueprint $table) {
-            $table->id();
+            $table->id()->startingValue(54321);
             $table->foreignId('user_id')->constrained()->references('id')->on('users')->cascadeOnDelete();
             $table->foreignId('age_id')->nullable()->constrained()->references('id')->on('ages');
             $table->foreignId('gender_id')->nullable()->constrained()->references('id')->on('genders');

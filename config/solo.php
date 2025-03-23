@@ -46,9 +46,9 @@ return [
     |
     */
     'commands' => [
+        'Serve' => './artisan serve',
         'Logs' => EnhancedTailCommand::file(storage_path('logs/laravel.log')),
         'Vite' => 'npm run dev',
-        'Serve' => './artisan serve',
         'Make' => new MakeCommand,
         // 'HTTP' => 'php artisan serve',
 

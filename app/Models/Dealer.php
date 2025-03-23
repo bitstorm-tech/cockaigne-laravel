@@ -21,19 +21,20 @@ class Dealer extends User
         'location',
     ];
 
-    public static function create(DealerSignupForm $data)
+    public static function create(DealerSignupForm $data): User
     {
         Log::info("Create dealer: {$data->email}");
 
         $data->validate();
         static::checkIfEmailExists($data->email, 'dealerForm');
         static::checkIfUsernameExists($data->username, 'dealerForm', 'Company name already exists');
-        static::saveDealer($data);
+
+        return static::saveDealer($data);
     }
 
-    protected static function saveDealer(DealerSignupForm $data)
+    protected static function saveDealer(DealerSignupForm $data): ?User
     {
-        DB::transaction(function () use ($data) {
+        return DB::transaction(function () use ($data) {
             $user = User::create([
                 'username' => $data->username,
                 'email' => $data->email,
@@ -57,6 +58,8 @@ class Dealer extends User
                 'tax_id' => $data->taxId,
                 'location' => DB::raw("ST_GeomFromText('POINT({$point['lon']} {$point['lat']})')"),
             ]);
+
+            return $user;
         });
     }
 

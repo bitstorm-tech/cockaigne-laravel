@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Dealer;
 use App\Models\Gender;
 use App\Models\ProUser;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Signup extends Component
@@ -27,11 +28,12 @@ class Signup extends Component
             'acceptTerms' => 'accepted',
         ]);
 
-        if ($this->isDealer) {
-            Dealer::create($this->dealerForm);
-        } else {
-            ProUser::create($this->userForm);
-        }
+        $user = match ($this->isDealer) {
+            true => Dealer::create($this->dealerForm),
+            false => ProUser::create($this->userForm),
+        };
+
+        Auth::login($user);
 
         response()->redirectTo('/');
     }

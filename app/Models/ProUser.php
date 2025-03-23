@@ -8,19 +8,20 @@ use Illuminate\Support\Facades\DB;
 
 class ProUser extends User
 {
-    protected $fillable = ['username', 'gender_id', 'age_id'];
+    protected $fillable = ['gender_id', 'age_id'];
 
-    public static function create(UserSignupForm $data)
+    public static function create(UserSignupForm $data): User
     {
         $data->validate();
         static::checkIfEmailExists($data->email, 'userForm');
         static::checkIfUsernameExists($data->username, 'userForm', 'Username already exists');
-        static::saveUser($data);
+
+        return static::saveUser($data);
     }
 
-    protected static function saveUser(UserSignupForm $data)
+    protected static function saveUser(UserSignupForm $data): ?User
     {
-        DB::transaction(function () use ($data) {
+        return DB::transaction(function () use ($data) {
             $user = User::create([
                 'username' => $data->username,
                 'email' => $data->email,
@@ -31,6 +32,8 @@ class ProUser extends User
                 'age_id' => $data->age,
                 'gender_id' => $data->gender,
             ]);
+
+            return $user;
         });
     }
 
