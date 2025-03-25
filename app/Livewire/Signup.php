@@ -40,9 +40,20 @@ class Signup extends Component
 
     public function render()
     {
-        $ages = Age::select(['id', 'age'])->where('active', true)->orderBy('age')->get();
-        $genders = Gender::select(['id', 'gender'])->where('active', true)->orderBy('gender')->get();
-        $categories = Category::select(['id', 'category'])->where('active', true)->orderBy('category')->get();
+        $ages = Age::select(['id', 'age'])
+            ->where('active', true)
+            ->orderBy('age')
+            ->get();
+
+        $genders = Gender::select(['id', 'gender'])
+            ->where('active', true)
+            ->orderBy('gender')
+            ->get();
+
+        $categories = Category::select(['id', 'category'])
+            ->where('active', true)
+            ->orderBy('category')
+            ->get();
 
         return view('livewire.signup', [
             'ages' => $ages,

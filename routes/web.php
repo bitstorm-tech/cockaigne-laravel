@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SetLanguageController;
 use App\Livewire\BasicVsPro;
 use App\Livewire\Dealer;
 use App\Livewire\DealsOverview;
@@ -29,6 +30,7 @@ Route::get('/', Home::class);
 Route::get('/basic-vs-pro', BasicVsPro::class);
 Route::get('/deal-overview', DealsOverview::class);
 Route::get('/dealer/{dealer}', Dealer::class);
+Route::get('/language/{language}', [SetLanguageController::class, 'setLanguage']);
 Route::get('/login', Login::class);
 Route::get('/logout', [Logout::class, 'logout']);
 Route::get('/map', Map::class);

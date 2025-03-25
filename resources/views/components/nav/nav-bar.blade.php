@@ -59,8 +59,8 @@
             <div class="flex gap-4">
                 {{ __("Language") }}:
                 <div class="flex gap-2">
-                    <a class="link w-10" href="/language-set/de"><img src="/icons/flag-de.svg" alt="Flag Germany" /></a>
-                    <a class="link w-10" href="/language-set/en"><img src="/icons/flag-uk.svg" alt="Flag UK" /></a>
+                    <a class="link w-10" href="/language/de"><img src="/icons/flag-de.svg" alt="Flag Germany" /></a>
+                    <a class="link w-10" href="/language/en"><img src="/icons/flag-uk.svg" alt="Flag UK" /></a>
                 </div>
             </div>
             <button class="btn btn-primary" onclick="LocationService.toggleLocationServiceSimulation()">
