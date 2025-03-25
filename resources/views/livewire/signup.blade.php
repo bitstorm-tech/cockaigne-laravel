@@ -2,16 +2,21 @@
     @csrf
     <h1 class="text-center">{{ __("Sign up") }}</h1>
 
-    <x-ui.checkbox label="Sign up a shop" model="isDealer" :live="true" />
+    <x-ui.checkbox label="Sign up a shop" wire:model.live="isDealer" />
 
     @if (! $isDealer)
         {{-- ------------- --}}
         {{-- User specific --}}
         {{-- ------------- --}}
-        <x-ui.input type="email" label="E-Mail" model="userForm.email" />
-        <x-ui.input type="text" label="Username" model="userForm.username" />
-        <x-ui.input type="password" label="Password" model="userForm.password" />
-        <x-ui.input type="password" label="Password confirmation" model="userForm.password_confirmation" />
+        <x-ui.input type="email" class="w-full" label="E-Mail" wire:model="userForm.email" />
+        <x-ui.input type="text" class="w-full" label="Username" wire:model="userForm.username" />
+        <x-ui.input type="password" class="w-full" label="Password" wire:model="userForm.password" />
+        <x-ui.input
+            type="password"
+            class="w-full"
+            label="Password confirmation"
+            wire:model="userForm.password_confirmation"
+        />
         <fieldset class="fieldset">
             <legend class="fieldset-legend">{{ __("Age") }}</legend>
             <select class="select w-full" wire:model="userForm.age">
@@ -34,10 +39,15 @@
         {{-- --------------- --}}
         {{-- Dealer specific --}}
         {{-- --------------- --}}
-        <x-ui.input type="email" label="E-Mail" model="dealerForm.email" />
-        <x-ui.input type="text" label="Company name" model="dealerForm.username" />
-        <x-ui.input type="password" label="Password" model="dealerForm.password" />
-        <x-ui.input type="password" label="Password confirmation" model="dealerForm.password_confirmation" />
+        <x-ui.input type="email" class="w-full" label="E-Mail" model="dealerForm.email" />
+        <x-ui.input type="text" class="w-full" label="Company name" model="dealerForm.username" />
+        <x-ui.input type="password" class="w-full" label="Password" model="dealerForm.password" />
+        <x-ui.input
+            type="password"
+            class="w-full"
+            label="Password confirmation"
+            model="dealerForm.password_confirmation"
+        />
         <div class="flex flex-col gap-2">
             <fieldset class="fieldset">
                 <legend class="fieldset-legend">{{ __("Industry") }}</legend>
@@ -53,18 +63,18 @@
             </fieldset>
             <div class="grid grid-cols-3 gap-2">
                 <div class="col-span-2">
-                    <x-ui.input type="text" label="Street" model="dealerForm.street" />
+                    <x-ui.input type="text" class="w-full" label="Street" model="dealerForm.street" />
                 </div>
                 <x-ui.input type="text" label="House number" model="dealerForm.houseNumber" />
             </div>
             <div class="grid grid-cols-3 gap-2">
                 <div class="col-span-2">
-                    <x-ui.input type="text" label="City" model="dealerForm.city" />
+                    <x-ui.input type="text" class="w-full" label="City" model="dealerForm.city" />
                 </div>
                 <x-ui.input type="text" label="Postal code" model="dealerForm.postalCode" />
             </div>
-            <x-ui.input type="text" label="Phone number" model="dealerForm.phoneNumber" />
-            <x-ui.input type="text" label="Tax ID" model="dealerForm.taxId" />
+            <x-ui.input type="text" class="w-full" label="Phone number" model="dealerForm.phoneNumber" />
+            <x-ui.input type="text" class="w-full" label="Tax ID" model="dealerForm.taxId" />
         </div>
     @endif
 

@@ -14,7 +14,7 @@ use Livewire\Component;
 
 class Signup extends Component
 {
-    public bool $isDealer = true;
+    public bool $isDealer = false;
 
     public bool $acceptTerms = true;
 

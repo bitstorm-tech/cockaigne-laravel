@@ -1,21 +1,14 @@
 @props([
     "label" => "",
-    "model" => "",
-    "live" => false,
 ])
 
 <label class="fieldset-label">
     <input
         type="checkbox"
-        class="checkbox"
-        @if ($live)
-            wire:model.live="{{ $model }}"
-        @else
-            wire:model="{{ $model }}"
-        @endif
+        {{ $attributes->merge(["class" => "checkbox"]) }}
     />
     <span>{{ __($label) }}</span>
+    @error($attributes->whereStartsWith("wire:model")->first())
+        <div class="text-error">{{ $message }}</div>
+    @enderror
 </label>
-@error($model)
-    <span class="text-error text-sm">{{ $message }}</span>
-@enderror
